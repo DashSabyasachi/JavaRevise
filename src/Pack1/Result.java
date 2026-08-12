@@ -1,21 +1,23 @@
 package Pack1;
-
-import java.util.Scanner;
 public class Result{
 	public static void main (String[] args){
-	Scanner sc = new Scanner(System.in);
+		
+	int mark = 189;
 	
-	System.out.print("Enter your mark: ");
-	int mark = sc.nextInt();
-	if(mark > 90){
+	if(mark > 90 && mark <=100){
 		System.out.println("Grade :A");
 		}
 	else if (mark <= 90 && mark > 80) {
 		System.out.println("Grade: B");
+		}
+	else if (mark >100) {
+		System.out.println("Invalid mark " );
 		}
 	else{
 		System.out.println("FAIL");
 		}
 	}
 }
+
+
 
