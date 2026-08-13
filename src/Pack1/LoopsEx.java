@@ -20,13 +20,13 @@ public class LoopsEx {
 //            System.out.println(i);
 //            i++;
 //        } while (i <= 15);
-		
+ 		
 		// for each
-		int[] numbers = {10,20,30,40,50};
-		for (int num:numbers) {
-			System.out.println(num);
-			}
-		}
-			
+//		int[] numbers = {10,20,30,40,50};
+//		for (int num:numbers) {
+//			System.out.println(num);
+//			}
+		}	
 	}
+
 
