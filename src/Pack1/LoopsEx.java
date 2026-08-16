@@ -27,14 +27,7 @@ public class LoopsEx {
 //		for (int num:numbers) {
 //			System.out.println(num);
 //			}
-		
-//		char [] letr = {'a','b','c','d','e'};
-//		for (char l:letr) {
-//			System.out.println(l);
-//		}
-	 	
-		
-		
+		}	
 	}
 
-}
+
