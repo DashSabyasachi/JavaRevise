@@ -19,6 +19,6 @@ public class Demo {
 		
 		Dog d1 = new Dog();
 		d1.eating();
-		System.out.println(d1.color);
+		System.out.println(d1.color); 
 	}
 }
