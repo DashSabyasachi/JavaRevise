@@ -5,6 +5,7 @@ public class StrBuffer {
 		StringBuffer sb = new StringBuffer("Hello");
 
 		sb.append(" Java");
+		sb.append(" & JavaScript");
 
 		System.out.println(sb);
 	}
