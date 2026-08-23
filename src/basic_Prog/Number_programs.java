@@ -6,26 +6,21 @@ public class Number_programs {
 //Armstrong Number
 //	public static void main(String[] args) {	
 
-//		int num, temp, total, count;
-//		
+//		int num, temp, total, count;	
 //		num = 153;
 //		temp = num;
 //		total = 0;
 //		count = 0;
-//		
 //		while (temp > 0) {
 //			count += 1;
 //			temp /= 10;
-//		}
-//			
-//		temp = num;
-//		
+//		}	
+//		temp = num;	
 //		while (temp>0) {
 //			int rem = temp % 10;
 //			total += Math.pow(rem,count);
 //			temp /= 10;
-//		}
-//		
+//		}	
 //		if(total == num) {
 //			 System.out.println("Number is Armstrong ");
 //		} else {
@@ -124,6 +119,4 @@ public class Number_programs {
 				System.out.println(num + " * " + i + " = " + num*i);
 			}
 		}
-		
-
 }
