@@ -78,20 +78,31 @@ public class Number_programs {
 		
 		
 //		Palindrome number
+//		public static void main(String[] args) {
+//			int num = 12321;
+//			int temp = num;
+//			int rev = 0;
+//			while (num > 0) {
+//				int rem = num % 10;
+//				rev = rev*10 + rem;
+//				num = num /10;
+//			}
+//			if(temp == rev) System.out.println(rev + " is a palindrome number");
+//			else  System.out.println(rev + " is not a palindrome number");
+//		}
+		
+//		Sum of digits in a number
 		public static void main(String[] args) {
-			int num = 12321;
-			int temp = num;
-			int rev = 0;
-			while (num > 0) {
-				int rem = num % 10;
-				rev = rev*10 + rem;
+			int num  =  12345;
+			int rem = 0;
+			int sum = 0;
+			while(num > 0) {
+				rem = num % 10;
+				sum = sum + rem;
 				num = num /10;
 			}
-			System.out.println(temp== rev);
-			if(temp == rev) System.out.println(rev + " is a palindrome number");
-			else  System.out.println(rev + " is not a palindrome number");
+			System.out.println(sum);
 		}
-//		Sum of digits
 //		Count digits
 //		Multiplication table
 		
