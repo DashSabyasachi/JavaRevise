@@ -106,17 +106,24 @@ public class Number_programs {
 	
 	
 //		Count digits
-		public static void main(String[] args) {
-			int num = 955350752;
-			int count = 0;
-			while (num > 0) {
-				count+=1;
-				num =num /10;
-			}
-			System.out.println(count);
-			
-		}
+//		public static void main(String[] args) {
+//			int num = 955350752;
+//			int count = 0;
+//			while (num > 0) {
+//				count+=1;
+//				num =num /10;
+//			}
+//			System.out.println(count);	
+//		}
+	
+
 //		Multiplication table
+		public static void main(String[] args) {
+			int num = 9;
+			for (int i = 1; i <=10; i++) {
+				System.out.println(num + " * " + i + " = " + num*i);
+			}
+		}
 		
 
 }
