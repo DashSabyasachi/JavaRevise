@@ -1,9 +1,13 @@
 package basic_Prog;
 
 public class Number_programs {
-	public static void main(String[] args) {
-		
-////		Armstrong Number
+	
+	
+////Armstrong Number
+
+	
+//	public static void main(String[] args) {	
+
 //		int num, temp, total, count;
 //		
 //		num = 153;
@@ -29,9 +33,32 @@ public class Number_programs {
 //		} else {
 //			System.out.println("Number is not Armstrong ");		
 //		}
+//}	
+		
+//		Factorial of a number
+		public static void main(String[] args) {
+			int num = 4;
+			
+			if(num < 0) System.out.println("Not possible");
+			
+			else {
+				int fact = 1;
+			
+			for (int i = 1; i<= num; i++) {
+				fact = fact * i;
+				}
+			System.out.println(fact);
+			}
+
+		}
 		
 		
+//		Fibonacci series
+//		Reverse a number
+//		Palindrome number
+//		Sum of digits
+//		Count digits
+//		Multiplication table
 		
-		
-	}
+
 }

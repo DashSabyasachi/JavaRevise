@@ -48,19 +48,20 @@ public class PracticeProg {
 //		}
 		
 //		Largest of three numbers
-		int a = 100;
-		int b = 400;
-		int c = 1252; 
-		int largest;
+//		int a = 100;
+//		int b = 400;
+//		int c = 1252; 
+//		int largest;
+//		
+//		if (a >= b && a >= c) {
+//			largest = a;
+//		}else if (b >= a && b >= c){
+//			largest = b;
+//		}
+//		else {
+//			largest = c;
+//		}
+//		System.out.println("Largest number: " + largest);
 		
-		if (a >= b && a >= c) {
-			largest = a;
-		}else if (b >= a && b >= c){
-			largest = b;
-		}
-		else {
-			largest = c;
-		}
-		System.out.println("Largest number: " + largest);
 	}
 }
