@@ -92,18 +92,30 @@ public class Number_programs {
 //		}
 		
 //		Sum of digits in a number
-		public static void main(String[] args) {
-			int num  =  12345;
-			int rem = 0;
-			int sum = 0;
-			while(num > 0) {
-				rem = num % 10;
-				sum = sum + rem;
-				num = num /10;
-			}
-			System.out.println(sum);
-		}
+//		public static void main(String[] args) {
+//			int num  =  12345;
+//			int rem = 0;
+//			int sum = 0;
+//			while(num > 0) {
+//				rem = num % 10;
+//				sum = sum + rem;
+//				num = num /10;
+//			}
+//			System.out.println(sum);
+//		}
+	
+	
 //		Count digits
+		public static void main(String[] args) {
+			int num = 955350752;
+			int count = 0;
+			while (num > 0) {
+				count+=1;
+				num =num /10;
+			}
+			System.out.println(count);
+			
+		}
 //		Multiplication table
 		
 
