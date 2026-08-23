@@ -3,9 +3,7 @@ package basic_Prog;
 public class Number_programs {
 	
 	
-////Armstrong Number
-
-	
+//Armstrong Number
 //	public static void main(String[] args) {	
 
 //		int num, temp, total, count;
@@ -35,7 +33,7 @@ public class Number_programs {
 //		}
 //}	
 		
-////		Factorial of a number
+//		Factorial of a number
 //		public static void main(String[] args) {
 //			int num = 4;
 //			
@@ -54,17 +52,29 @@ public class Number_programs {
 		
 		
 //		Fibonacci series
-		public static void main(String[] args) {
-			int a = 0, b = 1;
-			for(int i = 1;i <=10; i ++) {
-				System.out.println(a);
-				int c = a+b;
-				a = b;
-				b = c;		
-			}
-			
-		}
+//		public static void main(String[] args) {
+//			int a = 0, b = 1;
+//			for(int i = 1;i <=10; i ++) {
+//				System.out.println(a);
+//				int c = a+b;
+//				a = b;
+//				b = c;		
+//			}
+//			
+//		}	
+	
+	
 //		Reverse a number
+		public static void main(String[] args) {
+			int num = 7548;
+			int rev = 0;
+			while (num > 0) {
+				int rem =  num%10;
+				rev = rev*10 + rem;
+				num = num / 10;
+			}
+			System.out.println(rev);
+		}
 //		Palindrome number
 //		Sum of digits
 //		Count digits
