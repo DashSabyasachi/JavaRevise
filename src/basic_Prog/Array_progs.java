@@ -11,7 +11,7 @@ public class Array_progs {
 //		System.out.println(p.findLargest(arr));
 //		System.out.println(p.findSmallest(arr));
 //		System.out.println(p.sumOfElements(arr));
-		System.out.println(p.searchElement(arr,45));
+//		System.out.println(p.searchElement(arr,45));
 	}
 	
 //	Find largest number in an array
