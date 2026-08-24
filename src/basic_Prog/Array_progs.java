@@ -1,7 +1,10 @@
 package basic_Prog;
 
-public class Pattern_programs {
+public class Array_progs {
 	public static void main(String[] args) {
 		
-	}
+		}
+	
+	
+	
 }
