@@ -11,6 +11,5 @@ public class StartCode {
 		
 		LinkedList lst = new LinkedList();
 		
-		
 	}
 }
