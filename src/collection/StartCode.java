@@ -11,11 +11,17 @@ public class StartCode {
 		System.out.println(names);
 		System.out.println(names.get(0));
 		System.out.println(names.get(2));
+
+		ArrayList als = new ArrayList();
+		als.add(1234);
+		als.add("Sabya");
+		System.out.println(als);
 		
 		LinkedList lst = new LinkedList();
 		lst.add("E-City");
-		lst.add("Blr");
+		lst.add(1011);
 		lst.addAll(Arrays.asList("Dhl","Hyd"));
+		lst.remove("Dhl");
 		System.out.println(lst);
 		
 	}
