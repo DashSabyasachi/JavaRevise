@@ -1,5 +1,48 @@
 package exceptions;
+/*
+ * 1- what is exception
+   An exception is an unwanted/unexpected event that occurs during program execution and disturbs the normal flow of the program.
+2- what is exception handling 
+   Exception handling is a mechanism used to handle runtime problems so that the program can continue or terminate gracefully instead of suddenly crashing.
+3- default exception handler in java 
+   If we don't handle an exception, Java's JVM default exception handler handles it.
+4- types of exception 
+   checked : 
+   IOException
+   SQLException
+   FileNotFoundException
+   ClassNotFoundException
+   InterruptedException, 
+   unchecked:
+   ArithmeticException
+   NullPointerException
+   ArrayIndexOutOfBoundsException
+   NumberFormatException
+   ClassCastException
+5- handeling by try catch
+   write risky code in try block and handel the exception in catch block
+6- methods to print exception
+   toString()       → Exception + Message
+   getMessage()     → Message
+   printStackTrace()→ Complete error information
+7- finally 
+   finally is a block that generally executes whether an exception occurs or not.
+   finally {
+        System.out.println("Finally executed");
+    }
+
+8- throw
+   throw is used to explicitly throw an exception.
+   Used inside method/block
+   throw new RuntimeException("Invalid age");
+9- throws keyword
+   Used to declare possible exceptions
+   Used in method declaration
+   static void readFile() throws IOException*/
+
 
 public class Main {
-
+	public static void main(String[] args) {
+		
+	}
 }
