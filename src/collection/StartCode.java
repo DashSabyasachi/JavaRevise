@@ -16,6 +16,7 @@ public class StartCode {
 		als.add(1234);
 		als.add("Sabya");
 		System.out.println(als);
+		System.out.println(als.contains("Sabyasachi"));
 		
 		LinkedList lst = new LinkedList();
 		lst.add("E-City");

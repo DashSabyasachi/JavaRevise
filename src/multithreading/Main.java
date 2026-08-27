@@ -1,7 +1,8 @@
 package multithreading;
 
 public class Main {
-public static void main(String[] args) {
+	
+	public static void main(String[] args) {
 //	1-what is multithreading
 //	  Multithreading means executing multiple threads concurrently within a single program.
 //	  
@@ -213,5 +214,5 @@ public static void main(String[] args) {
 //	   Deadlock occurs when two or more threads wait forever for locks held by each other.
 //	21-starvation
 //	   Starvation occurs when a thread continuously fails to get the CPU or required resource because other threads keep getting preference.
-}
+	}
 }
