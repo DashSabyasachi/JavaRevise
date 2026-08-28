@@ -26,6 +26,14 @@ public class StartCode {
 		lst.remove("Dhl");
 		System.out.println(lst);
 		System.out.println(lst.isEmpty());
+		lst.add(4853);
+		lst.add("Yomitra");
+		System.out.println(lst);
+		lst.add(1,"Loam");
+		System.out.println(lst);
+		lst.set(1, "Bhiya");
+		System.out.println(lst);
+		
 		
 	} 
 } 
