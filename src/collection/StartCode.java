@@ -11,6 +11,7 @@ public class StartCode {
 		System.out.println(names);
 		System.out.println(names.get(0));
 		System.out.println(names.get(2));
+		System.out.println(names.size());
 
 		ArrayList als = new ArrayList();
 		als.add(1234);
@@ -24,6 +25,7 @@ public class StartCode {
 		lst.addAll(Arrays.asList("Dhl","Hyd"));
 		lst.remove("Dhl");
 		System.out.println(lst);
+		System.out.println(lst.isEmpty());
 		
-	}
+	} 
 } 
