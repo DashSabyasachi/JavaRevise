@@ -33,6 +33,28 @@ public class StartCode {
 		System.out.println(lst);
 		lst.set(1, "Bhiya");
 		System.out.println(lst);
+//		lst.clear();
+		System.out.println(lst);
+
 		
+		Vector<String> vector = new Vector<>();
+		vector.addAll(lst);
+		System.out.println("VECTOR "+vector);
+		
+		
+		System.out.println("__________________________");
+
+		HashSet<Double> nms=new HashSet<>();
+		nms.add(14.14);
+		nms.add(34.12354);
+		nms.add(2342.235);
+		nms.add(99.3);
+		nms.add(99.3);
+		nms.add(5.3);
+		System.out.println(nms);
+
+		TreeSet<Double> tset = new TreeSet<>();
+		tset.addAll(nms);
+		System.out.println(tset);
 	} 
 } 
