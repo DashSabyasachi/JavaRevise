@@ -1,0 +1,371 @@
+1- what is collection framework
+   Collection Framework is a set of classes and interfaces in Java used to store and manipulate groups of objects.
+--------------------------------------------------------------------------------------------------------------------------  
+2- what is collection
+   Collection is an interface in Java.
+   Collection provides common methods like:
+   add(),remove(),size(),contains(),clear()
+   Collection<String> names = new ArrayList<>();
+   names.add("Ram");
+--------------------------------------------------------------------------------------------------------------------------
+3- what is iterable
+   Iterable is an interface that allows an object to be iterated using a loop, especially the enhanced for loop.
+   ArrayList<String> names = new ArrayList<>();
+   names.add("Ram");
+   names.add("John");
+   for(String name : names) {
+    System.out.println(name);
+}
+--------------------------------------------------------------------------------------------------------------------------
+4- what is iterator
+   Iterator is used to traverse elements one by one from a collection.
+   Methods:
+   hasNext() : Checks whether next element exists
+   next() : Returns next element
+   remove() : Removes current element
+   
+   ArrayList<String> names = new ArrayList<>();
+   names.add("Ram");
+   names.add("John");
+   names.add("Sam");
+   Iterator<String> it = names.iterator();
+   while(it.hasNext()) {
+   System.out.println(it.next());
+}
+-----------------------------------------------------------------------------------------------------------------
+5- methods of collection interface
+   add() : Adds an element
+   addAll() : Adds multiple elements
+   remove() : Removes an element
+   removeAll() : Removes multiple elements
+   contains() : Checks whether element exists
+   containsAll() : Checks multiple elements
+   size() : Returns number of elements
+   isEmpty() : Checks whether collection is empty
+   clear() : Removes all elements
+   toArray() : Converts collection to array
+-----------------------------------------------------------------------------------------------------------------
+6- what is least and it's method
+   List is an interface used to store elements in an ordered sequence.
+   Maintains insertion order
+   Allows duplicate elements
+   Allows index-based access
+   Allows null values
+   List
+ ├── ArrayList
+ ├── LinkedList
+ └── Vector
+      └── Stack
+   | Method                | Purpose                  |
+| --------------------- | ------------------------ |
+| `add()`               | Add element              |
+| `add(index, element)` | Add at specific position |
+| `get(index)`          | Get element              |
+| `set(index, element)` | Replace element          |
+| `remove(index)`       | Remove by index          |
+| `remove(object)`      | Remove object            |
+| `indexOf()`           | Find first index         |
+| `lastIndexOf()`       | Find last index          |
+List<String> names = new ArrayList<>();
+names.add("Ram");
+names.add("John");
+names.add("Sam");
+System.out.println(names.get(1));
+-------------------------------------------------------------------------------------------------------------
+7- explain arraylist and it's method with example
+   ArrayList is a class that implements the List interface.
+   Maintains insertion order
+   Allows duplicates
+   Fast random access using index
+   Size can grow dynamically
+methods: 
+add()
+add(index, element)
+get()
+set()
+remove()
+size()
+contains()
+clear()
+isEmpty()
+    import java.util.ArrayList;
+
+class Main {
+    public static void main(String[] args) {
+
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Ram");
+        names.add("John");
+        names.add("Sam");
+        System.out.println(names);
+        System.out.println(names.get(1));
+        names.remove("John");
+        System.out.println(names);
+    }
+}
+---------------------------------------------------------------------------------------------------------
+8- explain Linkedlist and it's method with example
+   LinkedList is a class that implements List and Deque
+   Maintains insertion order
+   Allows duplicates
+   Good for insertion and deletion
+Methods: 
+add()
+addFirst()
+addLast()
+getFirst()
+getLast()
+removeFirst()
+removeLast()
+remove()
+size()
+contains()
+import java.util.LinkedList;
+
+class Main {
+    public static void main(String[] args) {
+
+        LinkedList<String> names = new LinkedList<>();
+        names.add("Ram");
+        names.add("John");
+        names.add("Sam");
+        System.out.println(names);
+        names.addFirst("Amit");
+        names.addLast("Raj");
+        System.out.println(names);
+    }
+}
+------------------------------------------------------------------------------------------------------------------
+9- explain vector and it's method with example
+   Vector is a legacy class that implements List.It is similar to ArrayList
+   Maintains insertion order
+   Allows duplicates
+   Dynamic size
+methods : 
+add()
+addElement()
+get()
+set()
+remove()
+removeElement()
+size()
+capacity()
+firstElement()
+lastElement()
+import java.util.Vector;
+
+class Main {
+    public static void main(String[] args) {
+
+        Vector<String> names = new Vector<>();
+        names.add("Ram");
+        names.add("John");
+        names.add("Sam");
+        System.out.println(names);
+        names.remove("John");
+        System.out.println(names);
+    }
+}
+--------------------------------------------------------------------------------------------------------------------
+10- explain stack and it's method with example
+    Stack is a class that extends Vector. It follows LIFO: The last element added is removed first.
+| Method     | Meaning                       |
+| ---------- | ----------------------------- |
+| `push()`   | Adds element                  |
+| `pop()`    | Removes top element           |
+| `peek()`   | Shows top element             |
+| `empty()`  | Checks whether stack is empty |
+| `search()` | Searches an element           |
+
+11- explain comparable and comparator with example
+    Comparable is used when we want to define the natural/default sorting order of a class.
+    compareTo();
+
+    import java.util.ArrayList;
+    import java.util.Collections;
+class Student implements Comparable<Student> {
+    int age;
+    Student(int age) {
+        this.age = age;
+    }
+
+    public int compareTo(Student s) {
+        return this.age - s.age;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+
+        ArrayList<Student> list = new ArrayList<>();
+
+        list.add(new Student(25));
+        list.add(new Student(20));
+        list.add(new Student(22));
+
+        Collections.sort(list);
+
+        for(Student s : list) {
+            System.out.println(s.age);
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------------------------
+Comparator: Comparator is used when we want to define custom sorting. compare()
+ import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(10);
+        numbers.add(30);
+        numbers.add(20);
+        Collections.sort(numbers, new Comparator<Integer>() {
+
+            public int compare(Integer a, Integer b) {
+                return b - a;
+            }
+        });
+
+        System.out.println(numbers);
+    }
+}
+----------------------------------------------------------------------------------------------------------------
+12- what is cursor and it's type with example
+    A cursor is used to move through the elements of a collection one by one. hasMoreElements(), nextElement()
+Enumeration : Used mainly with Vector.
+ Vector<String> v = new Vector<>();
+v.add("A");
+v.add("B");
+Enumeration<String> e = v.elements();
+while(e.hasMoreElements()) {
+    System.out.println(e.nextElement());
+}
+-----------------------------------------------------------------------------------------------------------------
+ListIterator : Used only with List It can move in both directions.
+methods: 
+hasNext()
+next()
+hasPrevious()
+previous()
+ArrayList<String> list = new ArrayList<>();
+list.add("A");
+list.add("B");
+Iterator<String> i = list.iterator();
+while(i.hasNext()) {
+    System.out.println(i.next());
+}
+------------------------------------------------------------------------------------------------------------------
+13- what is set and types of set
+    Set is an interface used to store unique elements.
+Does not allow duplicates
+No index-based access
+Some implementations maintain order
+------------------------------------------------------------------------------------------------------------------
+14- explain Hashset and it's method with example
+    HashSet is a class that implements Set, It stores unique elements and does not guarantee insertion order
+    No duplicate values, Allows one null
+methods: 
+add()
+remove()
+contains()
+size()
+isEmpty()
+clear()
+
+HashSet<Integer> numbers = new HashSet<>();
+numbers.add(10);
+numbers.add(20);
+System.out.println(numbers.contains(10));
+numbers.remove(20);
+System.out.println(numbers);
+--------------------------------------------------------------------------------------------------------------------
+15- explain Linked Hashset and it's method with example
+LinkedHashSet is similar to HashSet, but it maintains insertion order, No duplicates, Allows one null
+methods: 
+add()
+remove()
+contains()
+size()
+isEmpty()
+clear()
+import java.util.LinkedHashSet;
+
+class Main {
+    public static void main(String[] args) {
+        LinkedHashSet<String> names = new LinkedHashSet<>();
+        names.add("Ram");
+        names.add("John");
+        names.add("Sam");
+        names.add("Ram");
+        System.out.println(names);
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------
+16- explain sortedset and it's method with example
+    SortedSet is an interface that stores elements in sorted order.The most common implementation is:TreeSet
+No duplicate elements
+Elements are sorted
+Usually ascending order by default
+Does not use indexes
+
+| Method       | Meaning                                       |
+| ------------ | --------------------------------------------- |
+| `add()`      | Adds element                                  |
+| `remove()`   | Removes element                               |
+| `first()`    | Returns first element                         |
+| `last()`     | Returns last element                          |
+| `headSet()`  | Elements smaller than given value             |
+| `tailSet()`  | Elements greater than or equal to given value |
+| `subSet()`   | Elements within a range                       |
+| `contains()` | Checks element                                |
+
+--------------------------------------------------------------------------------------------------------------------------
+17- NavigableSet  
+NavigableSet is an interface in Java that extends SortedSet.
+It provides methods to navigate through elements in a sorted set, such as finding the nearest smaller or larger element.
+| Method            | Meaning                                       |
+| ----------------- | --------------------------------------------- |
+| `lower(e)`        | Greatest element strictly less than `e`       |
+| `floor(e)`        | Greatest element less than or equal to `e`    |
+| `higher(e)`       | Smallest element strictly greater than `e`    |
+| `ceiling(e)`      | Smallest element greater than or equal to `e` |
+| `pollFirst()`     | Removes and returns first element             |
+| `pollLast()`      | Removes and returns last element              |
+| `descendingSet()` | Returns elements in reverse order             |
+-----------------------------------------------------------------------------------------------------------------------------
+18- tree set
+    TreeSet is a class in Java that is used to store unique elements in sorted order.It implements the SortedSet and NavigableSet interfaces.
+
+| Method       | Meaning                                  |
+| ------------ | ---------------------------------------- |
+| `add()`      | Adds an element                          |
+| `remove()`   | Removes an element                       |
+| `contains()` | Checks whether element exists            |
+| `size()`     | Returns number of elements               |
+| `isEmpty()`  | Checks whether set is empty              |
+| `clear()`    | Removes all elements                     |
+| `first()`    | Returns smallest element                 |
+| `last()`     | Returns largest element                  |
+| `higher()`   | Returns element greater than given value |
+| `lower()`    | Returns element smaller than given value |
+| `ceiling()`  | Returns element ≥ given value            |
+| `floor()`    | Returns element ≤ given value            |
+
+import java.util.TreeSet;
+
+class Main {
+    public static void main(String[] args) {
+
+        TreeSet<Integer> numbers = new TreeSet<>();
+
+        numbers.add(30);
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(10);
+
+        System.out.println(numbers);
+    }
+}
