@@ -34,6 +34,5 @@ public class StartCode {
 		lst.set(1, "Bhiya");
 		System.out.println(lst);
 		
-		
 	} 
 } 
