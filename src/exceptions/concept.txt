@@ -29,7 +29,6 @@
    finally {
         System.out.println("Finally executed");
     }
-
 8- throw
    throw is used to explicitly throw an exception.
    Used inside method/block

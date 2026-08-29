@@ -51,7 +51,7 @@ public class TraverseExample {
 		
 //Sorting of elements
 		System.out.println("Sorting of elements");
-		TreeSet<String> set = new TreeSet();
+		TreeSet<String> set = new TreeSet<>();
 //		System.out.println(set);
 		set.addAll(names);
 //		System.out.println(set);
