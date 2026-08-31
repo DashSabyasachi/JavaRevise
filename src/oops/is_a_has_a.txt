@@ -1,0 +1,108 @@
+is a relationship : 
+IS-A means inheritance.
+A Dog IS-A Animal.
+So, Dog can inherit properties and methods from Animal.
+class Animal {
+
+    void eat() {
+        System.out.println("Animal eats");
+    }
+}
+
+class Dog extends Animal {
+
+    void bark() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+
+        Dog d = new Dog();
+
+        d.eat();   // inherited from Animal
+        d.bark();  // Dog's own method
+    }
+}
+---------------------------------------------------------------------------------------------------
+Has a relationship: 
+HAS-A = Composition/Association = one class has an object of another class as a member.
+1- association : Objects can exist independently
+class Teacher {
+
+    String name;
+
+    Teacher(String name) {
+        this.name = name;
+    }
+
+    void teach() {
+        System.out.println(name + " is teaching");
+    }
+}
+
+class Student {
+
+    String name;
+
+    Student(String name) {
+        this.name = name;
+    }
+
+    void study() {
+        System.out.println(name + " is studying");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+
+        Teacher teacher = new Teacher("John");
+        Student student = new Student("Rahul");
+
+        // Association
+        teacher.teach();
+        student.study();
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Composition — Strong HAS-A relationship
+A House contains Room objects. The rooms are considered parts of that particular house.
+class Room {
+
+    void showRoom() {
+        System.out.println("This is a room");
+    }
+}
+
+class House {
+
+    private Room room;
+
+    House() {
+        room = new Room();
+    }
+
+    void showHouse() {
+        System.out.println("This is a house");
+        room.showRoom();
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+
+        House house = new House();
+
+        house.showHouse();
+    }
+}
+| Association                            | Composition                                   |
+| -------------------------------------- | --------------------------------------------- |
+| Weak HAS-A relationship                | Strong HAS-A relationship                     |
+| Objects can exist independently        | Part is strongly owned by the whole           |
+| Example: Teacher ↔ Student             | Example: House → Room                         |
+| Objects are usually created separately | Part is commonly created/managed by the whole |
+
+
