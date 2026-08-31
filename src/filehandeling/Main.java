@@ -64,30 +64,21 @@ public class Main {
 //	       System.out.println(line3);
 //
 //	       reader.close();
-	
-	
-	
-	
-
-	    public static void main(String[] args) throws IOException { 
-
-	        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\sdash\\JavaProjects\\JavaRevise\\src\\filehandeling\\new.txt"));
-
-	        writer.write("Java");
-	        writer.newLine();
-	        writer.write("Spring Boot");
-	        writer.newLine();
-	        writer.write("React");
-
-	        writer.close();
-	    }
 
 	
-	
-	
-	
-	
-	
+
+//	    public static void main(String[] args) throws IOException { 
+//
+//	        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\sdash\\JavaProjects\\JavaRevise\\src\\filehandeling\\new.txt"));
+//
+//	        writer.write("Java");
+//	        writer.newLine();
+//	        writer.write("Spring Boot");
+//	        writer.newLine();
+//	        writer.write("React");
+//
+//	        writer.close();
+//	    }
 	
 	
 	
