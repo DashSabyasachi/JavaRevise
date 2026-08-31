@@ -1,0 +1,139 @@
+file handling
+The most common classes are in the java.io package.
+File Writing
+File writing means storing data from your Java program into a file.
+import java.io.FileWriter;
+import java.io.IOException;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class NewFile {
+public static void main(String[] args) throws IOException{
+	File file = new File("C:\\Users\\Ratik\\Documents\\data.txt");
+	FileWriter writer = new FileWriter(file);
+
+    writer.write("Hello Java");
+    writer.write("\nWelcome to File Handling");
+
+    writer.close();
+
+    System.out.println("Data written successfully");
+	}
+}
+--------------------------------------------------------------------------------------------------------
+File Reading
+File reading means retrieving data from a file into your Java program.
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Test {
+    public static void main(String[] args) throws IOException {
+
+        FileReader reader = new FileReader("path url");
+
+        int ch;
+
+        while ((ch = reader.read()) != -1) {
+            System.out.print((char) ch);
+        }
+
+        reader.close();
+    }
+}
+----------------------------------------------------------------------------------------------------------
+Reading Line by Line
+For reading text files, BufferedReader is commonly used.
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Test {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader reader =
+            new BufferedReader(new FileReader("data.txt"));
+
+        String line;
+
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+
+        String line = reader.readLine();
+        String line2 = reader.readLine();
+        String line3 = reader.readLine();
+        
+       System.out.println(line);
+       System.out.println(line2);
+       System.out.println(line3);
+
+        reader.close();
+    }
+}
+--------------------------------------------------------------------------------------------------------------
+Writing Using BufferedWriter
+BufferedWriter is useful when writing a larger amount of text.
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Test {
+    public static void main(String[] args) throws IOException {
+
+        BufferedWriter writer =
+            new BufferedWriter(new FileWriter("data.txt"));
+
+        writer.write("Java");
+        writer.newLine();
+        writer.write("Spring Boot");
+        writer.newLine();
+        writer.write("React");
+
+        writer.close();
+    }
+}
+-----------------------------------------------------------------------------------------------------------------
+Append Data to a File
+add data without deleting  existing content
+FileWriter writer =
+    new FileWriter("data.txt", true);
+
+writer.write("\nNew Data");
+
+writer.close();
+------------------------------------------------------------------------------------------------------------------
+delete file
+import java.io.File;
+
+public class Test {
+    public static void main(String[] args) {
+
+        File file = new File("data.txt");
+
+        if (file.delete()) {
+            System.out.println("File deleted successfully");
+        } else {
+            System.out.println("File not found");
+        }
+    }
+}
+--------------------------------------------------------------------------------------------------------------------
+import java.nio.file.*;
+import java.io.IOException;
+
+public class Test {
+    public static void main(String[] args) throws IOException {
+
+        Path path = Paths.get("data.txt");
+
+        String data = Files.readString(path);
+
+        data = data.replace("Python\n", " ");
+
+        Files.writeString(path, data);
+
+        System.out.println("Data deleted");
+    }
+}
