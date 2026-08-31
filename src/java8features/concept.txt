@@ -1,0 +1,166 @@
+Java 8 Features
+
+Lambda Expressions
+A lambda expression is a short way to write an implementation of a functional interface (an interface with only one abstract method).
+syntax- (parameters) -> { body }
+interface Test {
+    void show();
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Test t = new Test() {
+            public void show() {
+                System.out.println("Hello Java");
+            }
+        };
+
+      Test t = () -> {
+            System.out.println("Hello Java");
+        };
+
+        t.show();
+    }
+}
+------------------------------------------------------------------------------------------------------------------
+Stream API
+The Stream API is used to process collections of data easily.
+methods: 
+| Method       | Purpose                                  |
+| ------------ | ---------------------------------------- |
+| `stream()`   | Creates a stream                         |
+| `filter()`   | Selects matching elements                |
+| `map()`      | Transforms elements                      |
+| `sorted()`   | Sorts elements                           |
+| `forEach()`  | Performs an action on each element       |
+| `count()`    | Counts elements                          |
+| `collect()`  | Converts stream result into a collection |
+| `distinct()` | Removes duplicates                       |
+
+import java.util.Arrays;
+import java.util.List;
+
+public class Test {
+    public static void main(String[] args) {
+
+        List<Integer> numbers =
+            Arrays.asList(10, 15, 20, 25, 30);
+
+        numbers.stream()
+               .filter(n -> n % 2 == 0)
+               .forEach(n -> System.out.println(n));
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------
+Functional Interfaces
+a functional interface (an interface with only one abstract method)
+@FunctionalInterface
+interface Calculator {
+    int add(int a, int b);
+}
+
+public class Test {
+    public static void main(String[] args) {
+
+        Calculator c = (a, b) -> a + b;
+
+        System.out.println(c.add(10, 20));
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------
+Method References
+A method reference is a shorter way to write a lambda expression when we are simply calling an existing method.
+ClassName::methodName
+using lambda
+List<String> names =
+    Arrays.asList("Ravi", "Rahul", "Amit");
+
+names.forEach(name -> System.out.println(name));
+using method reference
+names.forEach(System.out::println);
+---------------------------------------------------------------------------------------------------------------------------
+Optional Class
+Optional is used to handle values that may or may not be present, helping avoid unnecessary NullPointerException.
+methods: 
+isPresent()  -- Checks whether value exists
+orElse()  --  Returns value or default value
+orElseGet()  --  Returns value or calculates default
+orElseThrow()  --  Returns value or throws exception
+import java.util.Optional;
+
+public class Test {
+    public static void main(String[] args) {
+
+        String name = null;
+
+        Optional<String> result =
+            Optional.ofNullable(name);
+
+        System.out.println(
+            result.orElse("Name not available")
+        );
+    }
+}
+----------------------------------------------------------------------------------------------------------------------
+Default & Static Methods in Interfaces
+A default method has a body.
+interface Vehicle {
+
+    default void start() {
+        System.out.println("Vehicle started");
+    }
+}
+
+class Car implements Vehicle {
+}
+
+public class Test {
+    public static void main(String[] args) {
+
+        Car c = new Car();
+        c.start();
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------
+A static interface method is called using the interface name.
+interface Vehicle {
+
+    static void message() {
+        System.out.println("Welcome");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+
+        Vehicle.message();
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------
+Date and Time API (java.time)
+LocalDate
+LocalTime
+LocalDateTime
+ZonedDateTime
+import java.time.LocalDateTime;
+
+public class Test {
+    public static void main(String[] args) {
+
+        LocalDateTime dateTime =
+            LocalDateTime.now();
+
+        System.out.println(dateTime);
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+Collection API Enhancements
+means new usefull collection method
+forEach()  -- Process every element
+removeIf()  - Remove based on condition
+replaceAll()  - Modify every element
+sort()  -- Sort elements
+Map.forEach()  -- Process key-value pairs
+Map.getOrDefault()  -- Get value or default
+Map.putIfAbsent()  -- Add only if key doesn't exist
+Map.compute()  -- Calculate/update a value
