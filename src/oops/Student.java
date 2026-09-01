@@ -8,8 +8,8 @@ public class Student {
 	
 	
 //	Uses of this keyword
-	public Student(int studentId, String studentName, String studentCity) {
-
+	public Student(int studentId, String studentName, String studentCity) { 
+		
 	        this.studentId = studentId;
 	        this.studentName = studentName;
 	        this.studentCity = studentCity;
@@ -21,8 +21,7 @@ public class Student {
 	        System.out.println("City: " + this.studentCity);
 	    }
 	
-	    
-	      
+	    	      
 //	Constructor    
 	public Student() {
 		System.out.println("Costructor creted: non-p");
