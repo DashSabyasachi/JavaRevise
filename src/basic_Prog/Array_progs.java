@@ -23,7 +23,6 @@ public class Array_progs {
 				largest = arr[i];
 			}
 		}
-
 		return largest;
 	}
 	
