@@ -133,7 +133,7 @@ public class CoreJavaScenarios {
     // ---------------------------------------------------------------
     static void q2() {
         String name = "Java";
-        name + " Programming";
+        name += " Programming";
         // TODO: fix so that "Java Programming" is printed
         System.out.println(name);
     }
