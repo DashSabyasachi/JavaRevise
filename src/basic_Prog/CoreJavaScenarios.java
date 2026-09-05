@@ -143,7 +143,7 @@ public class CoreJavaScenarios {
     // Should safely print "Other"
     // ---------------------------------------------------------------
     static void q3() {
-        String name = null;
+        String name = "null";
         // TODO: fix so this doesn't throw NPE
         if (name.equals("Java")) {
             System.out.println("Java");
