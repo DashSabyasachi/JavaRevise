@@ -161,11 +161,13 @@ public class CoreJavaScenarios {
         List<Integer> numbers =
                 Arrays.asList(10, 20, 10, 30, 20, 40);
         // TODO: fix - this throws UnsupportedOperationException as written
+        List<Integer> result = new ArrayList<>();
         for (Integer n : numbers) {
-            if (numbers.indexOf(n) != numbers.lastIndexOf(n))
-                numbers.remove(n);
+            if (!result.contains(n)) {
+            	result.add(n);
+            }
         }
-        System.out.println(numbers);
+        System.out.println(result);
     }
 
     // ---------------------------------------------------------------
