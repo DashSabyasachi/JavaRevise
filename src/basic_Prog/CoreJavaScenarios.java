@@ -447,7 +447,7 @@ public class CoreJavaScenarios {
                 Arrays.asList(50, 10, 40, 20, 30);
         // TODO: sort descending instead of ascending
         numbers.stream()
-                .sorted()
+                .sorted(Comparator.reverseOrder())
                 .forEach(System.out::println);
     }
 
@@ -459,8 +459,9 @@ public class CoreJavaScenarios {
         List<Integer> numbers =
                 Arrays.asList(10, 20, 10, 30, 20, 40);
         // TODO: replace the filter condition below (currently prints nothing)
+        Set<Integer> seen = new HashSet<>();
         numbers.stream()
-                .filter(n -> false /* ??? */)
+                .filter(n -> !seen.add(n))
                 .distinct()
                 .forEach(System.out::println);
     }
@@ -472,7 +473,7 @@ public class CoreJavaScenarios {
     static void q23() {
         Set<String> names = new HashSet<>();
         names.add("Java");
-        names.add("Java");
+        names.add("Java ");
         names.add("Spring");
         System.out.println(names.size());
         // TODO: explain why size is 2, and note which collection allows duplicates
@@ -495,6 +496,7 @@ public class CoreJavaScenarios {
     // Q25: Thread Race Condition
     // Fix so 1000 increments per thread x N threads gives the correct total.
     // ---------------------------------------------------------------
+    
     static class CounterQ25 {
         int count = 0;
         // TODO: fix - not thread-safe as written (add synchronized, or use AtomicInteger)
@@ -530,13 +532,14 @@ public class CoreJavaScenarios {
     // Q26: Thread Sleep / Join
     // "Completed" should print only after the thread finishes.
     // ---------------------------------------------------------------
-    static void q26() {
+    static void q26()  {
         Thread t = new Thread(() -> {
             for (int i = 1; i <= 5; i++)
                 System.out.println(i);
         });
         t.start();
         // TODO: fix so "Completed" prints only after the thread finishes
+       
         System.out.println("Completed");
     }
 
@@ -544,23 +547,28 @@ public class CoreJavaScenarios {
     // Q27: Immutable Object
     // Make Employee immutable.
     // ---------------------------------------------------------------
-    static final class EmployeeQ27 { // TODO: class should be final for true immutability
-        private final String name; // TODO: field should be final
-        EmployeeQ27(String name) {
+    static final class EmployeeQ27 {
+        private final String name;
+        private final List<String> skills;
+
+        EmployeeQ27(String name, List<String> skills) {
             this.name = name;
+            this.skills = new ArrayList<>(skills); // defensive copy in
         }
-        // TODO: remove the setter below - immutable objects can't be modified after construction
-        // public void setName(String name) {
-        //     this.name = name;
-        // }
+
         public String getName() {
             return name;
+        }
+
+        public List<String> getSkills() {
+            return Collections.unmodifiableList(skills); // defensive copy out
         }
     }
 
     static void q27() {
-        EmployeeQ27 e = new EmployeeQ27("Sabya");
+        EmployeeQ27 e = new EmployeeQ27("Sabya", Arrays.asList("Java", "Spring"));
         System.out.println(e.getName());
+        System.out.println(e.getSkills());
     }
 
     // ---------------------------------------------------------------
@@ -572,7 +580,19 @@ public class CoreJavaScenarios {
         EmployeeQ28(int id) {
             this.id = id;
         }
-        // TODO: override equals() and hashCode() based on id
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            EmployeeQ28 other = (EmployeeQ28) o;
+            return id == other.id;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(id);
+        }
     }
 
     static void q28() {
@@ -606,13 +626,11 @@ public class CoreJavaScenarios {
         ));
     }
 
-    static void q29() {
-        List<EmployeeQ29> employees = getEmployeesQ29();
-        // TODO: fix this comparator (buggy for equal salaries / brittle in general)
-        employees.sort((e1, e2) ->
-                e1.getSalary() > e2.getSalary() ? 1 : -1);
-        System.out.println(employees);
-    }
+    	static void q29() {
+    	    List<EmployeeQ29> employees = getEmployeesQ29();
+    	    employees.sort(Comparator.comparingDouble(EmployeeQ29::getSalary));
+    	    System.out.println(employees);
+    	}
 
     // ---------------------------------------------------------------
     // Q30: Optional Usage
@@ -625,6 +643,6 @@ public class CoreJavaScenarios {
     static void q30() {
         Optional<String> name = Optional.ofNullable(getName());
         // TODO: fix so this prints "Unknown" instead of throwing
-        System.out.println(name.get());
+        System.out.println(name.orElse("Unknown"));
     }
 }
