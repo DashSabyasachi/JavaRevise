@@ -45,7 +45,7 @@
    clear() : Removes all elements
    toArray() : Converts collection to array
 -----------------------------------------------------------------------------------------------------------------
-6- what is least and it's method
+6- what is list and it's method
    List is an interface used to store elements in an ordered sequence.
    Maintains insertion order
    Allows duplicate elements
@@ -56,7 +56,7 @@
  ├── LinkedList
  └── Vector
       └── Stack
-   | Method                | Purpose                  |
+| Method                | Purpose                  |
 | --------------------- | ------------------------ |
 | `add()`               | Add element              |
 | `add(index, element)` | Add at specific position |

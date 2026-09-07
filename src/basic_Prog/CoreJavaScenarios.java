@@ -190,21 +190,23 @@ public class CoreJavaScenarios {
     static void q6() {
         List<String> names =
                 new ArrayList<>(Arrays.asList("A", "B", "C"));
-        // TODO: fix - throws ConcurrentModificationException as written
-        for (String name : names) {
-            if (name.equals("B"))
-                names.remove(name);
+
+        Iterator<String> it = names.iterator();
+        while (it.hasNext()) {
+            String name = it.next();
+            if (name.equals("B")) {
+                it.remove();   // safe - tells the iterator itself to remove
+            }
         }
         System.out.println(names);
     }
-
     // ---------------------------------------------------------------
     // Q7: ArrayIndexOutOfBoundsException
     // ---------------------------------------------------------------
     static void q7() {
         int[] numbers = {10, 20, 30, 40, 50};
         // TODO: fix the loop bound
-        for (int i = 0; i <= numbers.length; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             System.out.println(numbers[i]);
         }
     }
@@ -219,20 +221,29 @@ public class CoreJavaScenarios {
         Integer c = 200;
         Integer d = 200;
         // TODO: fix the comparisons below (hint: Integer cache range is -128..127)
-        System.out.println(a == b);
-        System.out.println(c == d);
+        System.out.println(a.equals(b));
+        System.out.println(c.equals(d));
     }
 
     // ---------------------------------------------------------------
     // Q9: Finally Block
     // As written this returns 20. Modify so the method returns 10.
     // ---------------------------------------------------------------
+//    static int q9() {
+//        // TODO: modify so this returns 10, not 20
+//        try {
+//            return 10;
+//        } finally {
+//            return 20;
+//        }
+//    }
+    
     static int q9() {
-        // TODO: modify so this returns 10, not 20
         try {
             return 10;
         } finally {
-            return 20;
+            System.out.println("Finally block executed");
+            // no return here
         }
     }
 
@@ -244,7 +255,7 @@ public class CoreJavaScenarios {
         int total = 5;
         int count = 2;
         // TODO: fix so average prints 2.5
-        double average = total / count;
+        double average = (double)total / count;
         System.out.println(average);
     }
 
@@ -253,14 +264,14 @@ public class CoreJavaScenarios {
     // Both employees currently show the same company - fix the design.
     // ---------------------------------------------------------------
     static class EmployeeQ11 {
-        int id;
-        static String company; // TODO: this is the bug - should it be static?
+       int id;
+       String company; // TODO: this is the bug - should it be static?
         EmployeeQ11(int id, String company) {
             this.id = id;
             this.company = company;
         }
     }
-
+    
     static void q11() {
         EmployeeQ11 e1 = new EmployeeQ11(1, "Infosys");
         EmployeeQ11 e2 = new EmployeeQ11(2, "TCS");
@@ -279,7 +290,7 @@ public class CoreJavaScenarios {
         }
         EmployeeQ12(int id) {
             // TODO: fix - this assigns the parameter to itself (shadowing)
-            id = id;
+            this.id = id;
         }
         int getId() { return id; }
     }
