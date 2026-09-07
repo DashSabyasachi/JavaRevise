@@ -265,7 +265,7 @@ public class CoreJavaScenarios {
     // ---------------------------------------------------------------
     static class EmployeeQ11 {
        int id;
-       String company; // TODO: this is the bug - should it be static?
+       static String company; // TODO: this is the bug - should it be static?
         EmployeeQ11(int id, String company) {
             this.id = id;
             this.company = company;
@@ -290,7 +290,7 @@ public class CoreJavaScenarios {
         }
         EmployeeQ12(int id) {
             // TODO: fix - this assigns the parameter to itself (shadowing)
-            this.id = id;
+            id = id;
         }
         int getId() { return id; }
     }
@@ -341,7 +341,7 @@ public class CoreJavaScenarios {
 
     static void q14() {
         ParentQ14 p = new ChildQ14();
-        p.show(); // TODO: explain why this prints "Child" (runtime polymorphism)
+        p.show(); // It prints "Child" because of runtime polymorphism (dynamic method dispatch)
     }
 
     // ---------------------------------------------------------------
@@ -358,13 +358,19 @@ public class CoreJavaScenarios {
         } catch (Exception e) {
             System.out.println("Exception");
         }
-        // TODO: original had catch(Exception) before catch(ArithmeticException) - fix the order
+        // TODO: original had catch(Exception) before catch(ArithmeticException) - The order is fixed
     }
 
     // ---------------------------------------------------------------
     // Q16: Try-With-Resources
     // Resource should close automatically even on exception.
     // ---------------------------------------------------------------
+//    BufferedReader br = new BufferedReader(new FileReader("data.txt")); 
+//    String line = br.readLine(); 
+//    System.out.println(line); 
+//    br.close();
+//    
+    
     static void q16() {
         // TODO: convert to try-with-resources
         try (BufferedReader br = new BufferedReader(new FileReader("data.txt"))) {
@@ -384,7 +390,7 @@ public class CoreJavaScenarios {
                 Arrays.asList(10, 15, 20, 25, 30);
         // TODO: add the "greater than 20" condition
         numbers.stream()
-                .filter(n -> n % 2 == 0)
+                .filter(n -> n % 2 == 0 && n>20)
                 .forEach(System.out::println);
     }
 
@@ -398,7 +404,7 @@ public class CoreJavaScenarios {
         // TODO: modify the stream to also print each name's length
         names.stream()
                 .map(String::toUpperCase)
-                .forEach(System.out::println);
+                .forEach(n -> System.out.println(n + " - " + n.length()));
     }
 
     // ---------------------------------------------------------------
@@ -413,7 +419,7 @@ public class CoreJavaScenarios {
                         .filter(n -> n > 12)
                         .findFirst();
         // TODO: unwrap the Optional before printing
-        System.out.println(result);
+        System.out.println(result.get());
     }
 
     // ---------------------------------------------------------------
@@ -423,9 +429,13 @@ public class CoreJavaScenarios {
         List<String> names =
                 Arrays.asList("Java", null, "Spring", null);
         // TODO: fix so null values are ignored (throws NPE as written)
+//        names.stream()
+//                .map(String::toUpperCase)
+//                .forEach(System.out::println);
         names.stream()
-                .map(String::toUpperCase)
-                .forEach(System.out::println);
+        .filter(Objects::nonNull)
+        .map(String::toUpperCase)
+        .forEach(System.out::println);
     }
 
     // ---------------------------------------------------------------
