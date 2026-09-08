@@ -48,35 +48,72 @@ package multithreading;
 
 
 // //Runnable
-class MyTask implements Runnable {
+//class MyTask implements Runnable {
+//
+//    public void run() {
+//        System.out.println("Task is running");
+//    }
+//}
+//
+//public class Demo {
+//
+//    public static void main(String[] args) {
+//
+//        MyTask task = new MyTask();
+//
+//        Thread t1 = new Thread(task);
+//
+//        t1.start();
+//    }
+//}
 
-    public void run() {
-        System.out.println("Task is running");
-    }
-}
 
+
+// //Lambda makes Runnable shorter
+//public class Demo {
+//
+//    public static void main(String[] args) {
+//
+//        Runnable task = () -> {
+//            System.out.println("Task is running");
+//        };
+//
+//        Thread t1 = new Thread(task);
+//
+//        t1.start();
+//    }
+//}
+
+
+
+
+// //sleep() — Pause a Thread
 public class Demo {
 
     public static void main(String[] args) {
 
-        MyTask task = new MyTask();
+        class MyThread extends Thread {
 
-        Thread t1 = new Thread(task);
+            public void run() {
 
+                for (int i = 1; i <= 5; i++) {
+
+                    System.out.println(i);
+
+                    try {
+                        Thread.sleep(1000);
+                    }
+                    catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        MyThread t1 = new MyThread();
         t1.start();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
