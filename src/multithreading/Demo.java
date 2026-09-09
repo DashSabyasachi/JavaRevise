@@ -88,32 +88,62 @@ package multithreading;
 
 
 // //sleep() — Pause a Thread
+//public class Demo {
+//
+//    public static void main(String[] args) {
+//
+//        class MyThread extends Thread {
+//
+//            public void run() {
+//
+//                for (int i = 1; i <= 5; i++) {
+//
+//                    System.out.println(i);
+//
+//                    try {
+//                        Thread.sleep(1000);
+//                    }
+//                    catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        }
+//
+//        MyThread t1 = new MyThread();
+//        t1.start();
+//    }
+//}
+
+
+
 public class Demo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        class MyThread extends Thread {
+        Thread t1 = new Thread(() -> {
 
-            public void run() {
-
-                for (int i = 1; i <= 5; i++) {
-
-                    System.out.println(i);
-
-                    try {
-                        Thread.sleep(1000);
-                    }
-                    catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
+            for(int i = 1; i <= 5; i++) {
+                System.out.println(i);
             }
-        }
+        });
 
-        MyThread t1 = new MyThread();
         t1.start();
+
+        t1.join();
+
+        System.out.println("Main thread completed");
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 
