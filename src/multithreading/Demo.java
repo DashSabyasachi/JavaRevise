@@ -8,7 +8,6 @@ class MyThread extends Thread {
     }
 }
 
-
 public class Demo {
 
     public static void main(String[] args) {
