@@ -117,25 +117,38 @@ package multithreading;
 
 
 
-public class Demo {
 
-    public static void main(String[] args) throws InterruptedException {
+// // join() - wait for another thread
+//public class Demo {
+//
+//    public static void main(String[] args) throws InterruptedException {
+//
+//        Thread t1 = new Thread(() -> {
+//
+//            for(int i = 1; i <= 5; i++) {
+//                System.out.println(i);
+//            }
+//        });
+//
+//        t1.start();
+//
+//        t1.join();
+//
+//        System.out.println("Main thread completed");
+//    }
+//}
 
-        Thread t1 = new Thread(() -> {
 
-            for(int i = 1; i <= 5; i++) {
-                System.out.println(i);
-            }
-        });
 
-        t1.start();
-
-        t1.join();
-
-        System.out.println("Main thread completed");
-    }
-}
-
+//class Account {
+//
+//    int balance = 1000;
+//
+//    void withdraw(int amount) {
+//
+//        balance = balance - amount;
+//    }
+//}
 
 
 
