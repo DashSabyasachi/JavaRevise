@@ -129,7 +129,7 @@ public class Demo {
         });
 
         t1.start();
-
+       
         t1.join();
 
         System.out.println("Main thread completed");
