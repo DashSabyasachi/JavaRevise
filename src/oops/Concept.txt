@@ -1,0 +1,1022 @@
+CORE JAVA – OOPS CONCEPTS
+==========================
+
+1. WHAT IS A CLASS?
+===================
+
+A class is a blueprint/template used to create objects.
+
+A class can contain:
+- Variables (data/state)
+- Methods (behavior)
+- Constructors
+
+Example:
+
+    class Student {
+        int id;
+        String name;
+
+        void display() {
+            System.out.println(id + " " + name);
+        }
+    }
+
+Here:
+- Student is the class.
+- id and name are instance variables.
+- display() is a method.
+
+Creating an object:
+
+    Student s1 = new Student();
+
+Here:
+- Student → class/type
+- s1 → reference variable
+- new Student() → creates an object
+
+2. WHAT IS A METHOD?
+====================
+
+A method is a block of code that performs a specific task.
+
+Why use methods?
+- Code reusability
+- Better readability
+- Easier maintenance
+- Break a large program into smaller tasks
+
+Basic syntax:
+
+    accessModifier returnType methodName(parameters) {
+        // statements
+    }
+    public static void main (String[] args){
+        //statements
+    }
+
+
+2.1 TYPES OF METHODS
+--------------------
+
+A. STATIC METHOD
+----------------
+
+A static method belongs to the class rather than to an individual object.
+
+Example:
+
+    class Demo {
+
+        static void show() {
+            System.out.println("Static method");
+        }
+
+        public static void main(String[] args) {
+           // Demo.show();
+             show();
+        }
+    }
+
+Output:
+
+    Static method
+
+A static method can be called using the class name.
+We can call it directly.
+
+
+B. NON-STATIC / INSTANCE METHOD
+-------------------------------
+
+A non-static method belongs to an object.
+
+Example:
+
+    class Demo {
+
+        void show() {
+            System.out.println("Non-static method");
+        }
+
+        public static void main(String[] args) {
+            Demo d = new Demo();
+            d.show();
+        }
+    }
+
+Output:
+
+    Non-static method
+
+A non-static method is normally called using an object reference.
+
+
+2.2 HOW TO CALL STATIC AND NON-STATIC METHODS
+----------------------------------------------
+
+Static:
+
+    ClassName.methodName();
+
+Example:
+
+    MathDemo.add();
+      add();
+
+Non-static:
+
+    ClassName obj = new ClassName();
+    obj.methodName();
+
+
+2.3 NO-ARGUMENT METHOD
+----------------------
+
+A no-argument method does not receive parameters.
+
+Example:
+
+    void greet() {
+        System.out.println("Hello Java");
+    }
+
+Call:
+
+    greet();
+
+
+2.4 PARAMETERIZED METHOD
+------------------------
+
+A parameterized method accepts values through parameters.
+
+Example:
+
+    void greet(String name) {
+        System.out.println("Hello " + name);
+    }
+
+Call:
+
+    greet("Amit");
+
+Output:
+
+    Hello Amit
+
+
+MULTIPLE PARAMETERS
+-------------------
+
+    int add(int a, int b) {
+        return a + b;
+    }
+
+Call:
+
+    int result = add(10, 20);
+
+Output:
+
+    30
+
+
+2.5 RETURN TYPE
+---------------
+
+The return type tells Java what type of value the method returns.
+
+Example:
+
+    int square(int n) {
+        return n * n;
+    }
+
+Call:
+
+    int result = square(5);
+
+    System.out.println(result);
+
+Output:
+
+    25
+
+If a method does not return a value, use:
+
+    void
+
+Example:
+
+    void display() {
+        System.out.println("Java");
+    }
+
+
+3. WHAT IS INHERITANCE?
+=======================
+
+Inheritance is a mechanism where one class acquires properties and methods.
+of another class.
+
+It supports code reuse and creates an IS-A relationship.
+
+Terminology:
+- Parent / Superclass
+- Child / Subclass
+
+Example:
+
+    class Animal {
+        void eat() {
+            System.out.println("Animal eats");
+        }
+    }
+
+    class Dog extends Animal {
+        void bark() {
+            System.out.println("Dog barks");
+        }
+
+       
+    }
+
+    public class Test {
+        public static void main(String[] args) {
+            Dog d = new Dog();
+            d.eat();
+            d.bark();
+        }
+    }
+
+Output:
+
+    Animal eats
+    Dog barks
+
+Here Dog inherits eat() from Animal.
+
+
+3.1 TYPES OF INHERITANCE
+------------------------
+
+A. SINGLE INHERITANCE
+---------------------
+
+One child inherits from one parent.
+
+    Animal
+       |
+      Dog
+
+
+Example:
+
+    class Animal {
+        void eat() {
+            System.out.println("Eating");
+        }
+    }
+
+    class Dog extends Animal {
+        void bark() {
+            System.out.println("Barking");
+        }
+    }
+
+
+B. MULTILEVEL INHERITANCE
+--------------------------
+
+A class inherits from a class which itself inherits from another class.
+
+    Animal
+       |
+      Dog
+       |
+    Puppy
+
+
+Example:
+
+    class Animal {
+        void eat() {
+            System.out.println("Eating");
+        }
+    }
+
+    class Dog extends Animal {
+        void bark() {
+            System.out.println("Barking");
+        }
+        void eat() {
+            System.out.println("Eating");
+        }
+
+    }
+
+    class Puppy extends Dog {
+        void play() {
+            System.out.println("Playing");
+        }
+    }
+
+
+C. HIERARCHICAL INHERITANCE
+---------------------------
+
+Multiple child classes inherit from the same parent.
+
+    Animal
+     /   \
+   Dog   Cat
+
+
+Example:
+
+    class Animal {
+        void eat() {
+            System.out.println("Eating");
+        }
+    }
+
+    class Dog extends Animal {
+    }
+
+    class Cat extends Animal {
+    }
+
+
+D. MULTIPLE INHERITANCE
+-----------------------
+
+Multiple inheritance means one class inherits from more than one parent
+class.
+
+Java does NOT support multiple inheritance through classes.
+
+Example of what Java does not allow:
+
+    class A { }
+    class B { }
+
+    class C extends A, B { }   // Not allowed
+
+Java can achieve multiple inheritance of type through INTERFACES.
+
+Example:
+
+    interface A {
+        void showA();
+    }
+
+    interface B {
+        void showB();
+    }
+
+    class C implements A, B {
+        public void showA() {
+            System.out.println("A");
+        }
+
+        public void showB() {
+            System.out.println("B");
+        }
+    }
+
+
+4. WHAT IS POLYMORPHISM?
+========================
+
+Polymorphism means "many forms".
+
+In Java, the same method name or reference can represent different behavior
+depending on the situation.
+
+Two main types:
+
+1. Compile-time polymorphism
+2. Run-time polymorphism
+
+
+4.1 COMPILE-TIME POLYMORPHISM
+-----------------------------
+
+Method overloading is the common example of compile-time polymorphism.
+
+The compiler decides which overloaded method to call.
+
+Example:
+
+    class Calculator {
+
+        int add(int a, int b) {
+            return a + b;
+        }
+
+        int add(int a, int b, int c) {
+            return a + b + c;
+        }
+    }
+
+Usage:
+
+    Calculator c = new Calculator();
+
+    System.out.println(c.add(10, 20));
+    System.out.println(c.add(10, 20, 30));
+
+Output:
+
+    30
+    60
+
+The method name is the same, but parameter lists are different.
+
+
+4.2 RUN-TIME POLYMORPHISM
+-------------------------
+
+Run-time polymorphism is commonly achieved through method overriding.
+
+A parent reference can refer to a child object.
+
+Example:
+
+    class Animal {
+        void sound() {
+            System.out.println("Animal sound");
+        }
+    }
+
+    class Dog extends Animal {
+        @Override
+        void sound() {
+            System.out.println("Dog barks");
+        }
+    }
+
+    public class Test {
+        public static void main(String[] args) {
+
+            Animal a = new Dog();
+            a.sound();
+        }
+    }
+
+Output:
+
+    Dog barks
+
+Explanation:
+- Reference type = Animal
+- Object type = Dog
+- At runtime, Dog's overridden sound() executes.
+
+This is called dynamic method dispatch.
+
+
+5. WHAT ARE MODIFIERS?
+======================
+
+Modifiers are keywords used to control access, behavior or characteristics
+of classes, variables and methods.
+
+
+5.1 ACCESS MODIFIERS
+--------------------
+
+Java has four commonly discussed access levels:
+
+1. public
+2. protected
+3. default
+4. private
+
+
+A. public
+---------
+
+A public member can be accessed wherever the access rules allow the class
+itself to be accessed.
+
+Example:
+
+    public class Employee {
+        public int id = 101;
+    }
+
+
+B. protected
+------------
+
+A protected member is accessible:
+- Within the same package
+- In subclasses, including subclasses in another package through inheritance
+
+Example:
+
+    class Parent {
+        protected void show() {
+            System.out.println("Protected method");
+        }
+    }
+
+    class Child extends Parent {
+        void test() {
+            show();
+        }
+    }
+
+
+C. default
+----------
+
+When no access modifier is written, the member has package-private (default)
+access.
+
+It is accessible within the same package.
+
+Example:
+
+    class Demo {
+        int number = 10;
+    }
+
+
+D. private
+----------
+
+A private member is accessible only within the same class.
+
+Example:
+
+    class Account {
+
+        private double balance;
+
+        void deposit(double amount) {
+            balance = balance + amount;
+        }
+    }
+
+
+5.2 NON-ACCESS MODIFIERS
+------------------------
+
+Important non-access modifiers for this syllabus:
+
+1. final
+2. static
+3. abstract
+
+
+A. final
+--------
+
+final prevents further modification depending on where it is used.
+
+final variable:
+
+    final int MAX = 100;
+
+MAX cannot be assigned another value.
+
+final method:
+
+    final void show() {
+        System.out.println("Cannot be overridden");
+    }
+
+A final method cannot be overridden by a subclass.
+
+final class:
+
+    final class SecurityManager {
+    }
+
+A final class cannot be extended.
+
+
+B. static
+---------
+
+static indicates that a member belongs to the class rather than to individual
+objects.
+
+Example:
+
+    class Employee {
+
+        static String company = "ABC";
+
+        int id;
+    }
+
+All Employee objects share the same company variable.
+
+A static method can be called using the class name.
+
+    Employee.show();
+
+
+C. abstract
+-----------
+
+abstract is used with abstract classes and abstract methods.
+
+An abstract method does not have a method body.
+
+Example:
+
+    abstract class Animal {
+
+        abstract void sound();
+    }
+
+A concrete subclass must provide the implementation of the abstract method.
+
+    class Dog extends Animal {
+
+        @Override
+        void sound() {
+            System.out.println("Dog barks");
+        }
+    }
+
+
+6. WHAT IS A CONSTRUCTOR?
+=========================
+
+A constructor is a special member of a class used to initialize an object.
+
+Important characteristics:
+- Constructor name is the same as the class name.
+- It does not have a return type.
+- It is called automatically when an object is created.
+
+Example:
+
+    class Student {
+
+        Student() {
+            System.out.println("Constructor called");
+        }
+    }
+
+    public class Test {
+        public static void main(String[] args) {
+            Student s = new Student();
+        }
+    }
+
+Output:
+
+    Constructor called
+
+
+6.1 NO-ARGUMENT CONSTRUCTOR
+----------------------------
+
+A constructor with no parameters is called a no-argument constructor.
+
+Example:
+
+    class Student {
+
+        Student() {
+            System.out.println("Student created");
+        }
+    }
+
+
+6.2 PARAMETERIZED CONSTRUCTOR
+-----------------------------
+
+A constructor that accepts parameters is called a parameterized constructor.
+
+Example:
+
+    class Student {
+
+        int id;
+        String name;
+
+        Student(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+    }
+
+Usage:
+
+    Student s1 = new Student(101, "Amit");
+
+
+6.3 DEFAULT CONSTRUCTOR
+-----------------------
+
+If a class contains NO constructor, the Java compiler provides a default
+constructor automatically.
+
+Example:
+
+    class Student {
+        int id;
+        String name;
+    }
+
+Java provides an implicit no-argument constructor for Student.
+
+Important:
+Once you define any constructor yourself, Java does not automatically add the
+compiler-provided default constructor.
+
+
+6.4 COPY CONSTRUCTOR
+--------------------
+
+Java does not provide a special copy-constructor keyword.
+
+A copy constructor is a constructor written by the programmer that creates
+a new object using another object of the same class.
+
+Example:
+
+    class Student {
+
+        int id;
+        String name;
+
+        Student(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        Student(Student other) {
+            this.id = other.id;
+            this.name = other.name;
+        }
+    }
+
+Usage:
+
+    Student s1 = new Student(101, "Amit");
+    Student s2 = new Student(s1);
+
+Now s2 gets values copied from s1.
+
+
+7. WHAT IS AN INTERFACE?
+========================
+
+An interface is a reference type used to define a contract that implementing
+classes must follow.
+
+A class uses:
+
+    implements
+
+to implement an interface.
+
+Example:
+
+    interface Vehicle {
+
+        void start();
+    }
+
+    class Car implements Vehicle {
+
+        @Override
+        public void start() {
+            System.out.println("Car starts");
+        }
+    }
+
+Usage:
+
+    Vehicle v = new Car();
+    v.start();
+
+Output:
+
+    Car starts
+
+Important:
+An interface can declare abstract methods, and modern Java interfaces can
+also contain default, static and private methods.
+
+
+7.1 INTERFACE METHODS
+---------------------
+
+A basic abstract interface method:
+
+    interface Animal {
+        void sound();
+    }
+
+The implementing class provides the method body:
+
+    class Dog implements Animal {
+
+        @Override
+        public void sound() {
+            System.out.println("Bark");
+        }
+    }
+
+
+8. WHAT IS ABSTRACTION?
+=======================
+
+Abstraction means hiding implementation details and exposing only the
+essential functionality.
+
+Example:
+A user can drive a car using steering, brakes and accelerator without needing
+to know the internal engine implementation.
+
+In Java, abstraction can be achieved using:
+- Abstract classes
+- Interfaces
+
+
+8.1 ABSTRACT CLASS
+------------------
+
+Example:
+
+    abstract class Animal {
+
+        abstract void sound();
+
+        void eat() {
+            System.out.println("Animal eats");
+        }
+    }
+
+    class Dog extends Animal {
+
+        @Override
+        void sound() {
+            System.out.println("Dog barks");
+        }
+    }
+
+Usage:
+
+    Dog d = new Dog();
+    d.sound();
+    d.eat();
+
+Output:
+
+    Dog barks
+    Animal eats
+
+An abstract class cannot be instantiated directly:
+
+    Animal a = new Animal();   // Not allowed
+
+
+9. WHAT IS ENCAPSULATION?
+=========================
+
+Encapsulation means bundling data and the methods that operate on that data
+inside a class, while controlling direct access to the internal state.
+
+A common implementation uses:
+- private variables
+- public getter/setter methods
+
+Example:
+
+    class BankAccount {
+
+        private double balance;
+
+        public void setBalance(double balance) {
+            if (balance >= 0) {
+                this.balance = balance;
+            }
+        }
+
+        public double getBalance() {
+            return balance;
+        }
+    }
+
+Usage:
+
+    BankAccount account = new BankAccount();
+
+    account.setBalance(5000);
+
+    System.out.println(account.getBalance());
+
+Output:
+
+    5000.0
+
+Here balance is private, so other classes cannot directly modify it.
+
+This gives the class control over how its data is accessed or changed.
+
+
+10. ABSTRACTION VS ENCAPSULATION
+================================
+
+Abstraction:
+- Focuses on WHAT an object does.
+- Hides unnecessary implementation details.
+- Achieved using abstract classes and interfaces.
+
+Encapsulation:
+- Focuses on HOW data is protected/controlled inside a class.
+- Uses access control such as private fields with controlled methods.
+
+Simple example:
+
+Encapsulation:
+    private balance;
+
+Abstraction:
+    account.withdraw(1000);
+
+12. CLASS + OBJECT + METHOD + CONSTRUCTOR EXAMPLE
+=================================================
+
+    class Employee {
+
+        int id;
+        String name;
+
+        Employee(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        void display() {
+            System.out.println(id + " " + name);
+        }
+    }
+
+    public class Test {
+
+        public static void main(String[] args) {
+
+            Employee e1 = new Employee(101, "Amit");
+
+            e1.display();
+        }
+    }
+
+Output:
+
+    101 Amit
+
+Concepts shown:
+- Employee → class
+- e1 → object reference
+- Employee(...) → constructor
+- display() → method
+- id, name → instance variables
+
+
+13. IMPORTANT OOP QUESTIONS
+=====================================
+
+1. What is a class?
+2. What is an object?
+3. What is a method?
+4. What is the difference between static and non-static methods?
+5. What is a parameterized method?
+6. What is a return type?
+7. What is inheritance?
+8. What are the types of inheritance?
+9. Does Java support multiple inheritance through classes?
+10. What is polymorphism?
+11. What is method overloading?
+12. What is method overriding?
+13. What is compile-time polymorphism?
+14. What is run-time polymorphism?
+15. What are access modifiers?
+16. What is the difference between protected and default access?
+17. What is final?
+18. What is static?
+19. What is abstract?
+20. What is a constructor?
+21. Constructor vs method?
+22. What is a parameterized constructor?
+23. What is a default constructor?
+24. What is a copy constructor?
+25. What is an interface?
+26. What is abstraction?
+27. What is encapsulation?
+28. Abstraction vs encapsulation?
+29. Inheritance vs polymorphism?
+
