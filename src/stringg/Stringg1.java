@@ -4,6 +4,9 @@ public class Stringg1 {
 	
 public static void main(String[] args) {
 	String name="Sabya";
+	String namme="Sabya";
+	System.out.println(name==namme);
+	
 	System.out.println(System.identityHashCode(name));
 	name = name + "sachi";
 	System.out.println(name);

@@ -1019,4 +1019,3 @@ Concepts shown:
 27. What is encapsulation?
 28. Abstraction vs encapsulation?
 29. Inheritance vs polymorphism?
-
