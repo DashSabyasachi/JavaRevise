@@ -1,0 +1,901 @@
+CORE JAVA – STRING, WRAPPER CLASS AND ARRAY 
+===============================================================
+
+TOPICS
+-------------
+1. String class and its methods
+2. StringBuilder
+3. StringBuffer
+4. Wrapper class
+5. Autoboxing
+6. Unboxing
+7. What is an array
+8. Array declaration and initialization
+9. 2D array
+10. How to initialize array dynamically
+
+
+===============================================================
+1. STRING CLASS AND ITS METHODS
+===============================================================
+
+WHAT IS STRING?
+---------------
+String is a class in Java used to represent a sequence of characters.
+
+Example:
+
+    String name = "Java";
+
+Here:
+- String is the class.
+- name is a reference variable.
+- "Java" is a String value.
+
+String is NOT a primitive data type.
+
+
+STRING CREATION
+---------------
+
+1. Using a String literal:
+
+    String s1 = "Java";
+
+2. Using new:
+
+    String s2 = new String("Java");
+
+
+LENGTH()
+--------
+
+Returns the number of characters.
+
+    String s = "Java Pfd";
+
+    System.out.println(s.length());
+
+Output:
+    4
+
+Important:
+For arrays use:
+    array.length
+
+For Strings use:
+    string.length()
+
+
+CHARAT()
+--------
+
+Returns the character at a specified index.
+
+    String s = "Java";
+
+    System.out.println(s.charAt(0));
+    System.out.println(s.charAt(2));
+
+Output:
+    J
+    v
+
+
+TOUPPERCASE() AND TOLOWERCASE()
+-------------------------------
+
+    String s = "JAVA";
+
+    System.out.println(s.toUpperCase());
+    System.out.println(s.toLowerCase());
+
+Output:
+    JAVA
+    java
+
+
+EQUALS()
+--------
+
+Compares String content.
+
+    String s1 = "Java";
+    String s2 = "Java";
+
+    System.out.println(s1.equals(s2));
+
+Output:
+    true
+
+
+EQUALSIGNORECASE()
+------------------
+
+    String s1 = "JAVA";
+    String s2 = "java";
+
+    System.out.println(s1.equalsIgnoreCase(s2));
+
+Output:
+    true
+
+
+CONTAINS()
+----------
+
+    String s = "Java Programming";
+
+    System.out.println(s.contains("Javaaa"));
+
+Output:
+    true
+
+
+STARTSWITH() / ENDSWITH()
+--------------------------
+
+    String s = "Java Programming class";
+
+    System.out.println(s.startsWith("Java"));
+    System.out.println(s.endsWith("Programming"));
+
+Output:
+    true
+    true
+
+
+SUBSTRING()
+-----------
+
+    String s = "JavaProgramming";
+
+    System.out.println(s.substring(4));
+
+Output:
+    Programming
+
+Using start and end:
+
+    System.out.println(s.substring(0, 4));
+
+Output:
+    Java
+
+Start index is included.
+End index is excluded.
+
+
+TRIM()
+------
+
+Removes leading and trailing whitespace.
+
+    String s = "   Java   ";
+
+    System.out.println(s.trim());
+
+Output:
+    Java
+
+
+REPLACE()
+---------
+
+    String s = "Java";
+
+    System.out.println(s.replace('a', 'o'));
+
+Output:
+    Jovo
+
+
+ISEMPTY()
+---------
+
+    String s = "";
+
+    System.out.println(s.isEmpty());
+
+Output:
+    true
+
+
+CONCAT()
+--------
+
+    String first = "Hello";
+    String second = " Java";
+
+    String result = first.concat(second);
+
+    System.out.println(result);
+
+Output:
+    Hello Java
+
+
+STRING COMPARISON: == VS EQUALS()
+---------------------------------
+
+For objects, == compares references.
+
+equals() compares String content.
+
+Example:
+
+    String s1 = new String("Java");
+    String s2 = new String("Java");
+
+    System.out.println(s1 == s2);
+    System.out.println(s1.equals(s2));
+
+Output:
+    false
+    true
+
+For String content comparison, use:
+    equals()
+
+
+STRING IMMUTABILITY
+-------------------
+
+String objects are immutable.
+
+Example:
+
+    String s = "Java";
+
+    s.concat(" Programming");
+
+    System.out.println(s);
+
+Output:
+    Java
+
+The result was not stored.
+
+Correct:
+
+    s = s.concat(" Programming");
+
+Now the value of s is:
+    Java Programming
+
+
+IMPORTANT STRING METHODS – QUICK REFERENCE
+-------------------------------------------
+    length()            → number of characters
+    charAt(index)       → character at index
+    toUpperCase()       → uppercase
+    toLowerCase()       → lowercase
+    equals()            → compares content
+    equalsIgnoreCase()  → compares content ignoring case
+    contains()          → checks for sequence
+    startsWith()        → checks beginning
+    endsWith()          → checks ending
+    substring()         → extracts part
+    trim()              → removes outer whitespace
+    replace()           → replaces characters/text
+    isEmpty()           → checks zero length
+    concat()            → joins Strings
+
+
+===============================================================
+2. STRINGBUILDER
+===============================================================
+
+StringBuilder is a mutable sequence of characters.
+
+Unlike String, a StringBuilder can be modified.
+
+Example:
+
+    StringBuilder sb = new StringBuilder("Java");
+
+    sb.append(" Programming");
+
+    System.out.println(sb);
+
+Output:
+    Java Programming
+
+
+APPEND()
+--------
+
+    StringBuilder sb = new StringBuilder();
+
+    sb.append("Java");
+    sb.append(" Programming");
+
+    System.out.println(sb);
+
+Output:
+    Java Programming
+
+
+INSERT()
+--------
+
+    StringBuilder sb = new StringBuilder("Jav");
+
+    sb.insert(3, "a");
+
+    System.out.println(sb);
+
+Output:
+    Java
+
+
+DELETE()
+--------
+
+    StringBuilder sb = new StringBuilder("JavaProgramming");
+
+    sb.delete(4, 15);
+
+    System.out.println(sb);
+
+Output:
+    Java
+
+
+REPLACE()
+---------
+
+    StringBuilder sb = new StringBuilder("Java");
+
+    sb.replace(0, 4, "Python");
+
+    System.out.println(sb);
+
+Output:
+    Python
+
+
+REVERSE()
+---------
+
+    StringBuilder sb = new StringBuilder("Java");
+
+    sb.reverse();
+
+    System.out.println(sb);
+
+Output:
+    avaJ
+
+
+TOSTRING()
+----------
+
+Converts StringBuilder to String.
+
+    StringBuilder sb = new StringBuilder("Java");
+
+    String result = sb.toString();
+
+    System.out.println(result);
+
+
+STRING VS STRINGBUILDER
+----------------------
+String:
+    Immutable
+
+StringBuilder:
+    Mutable
+    Suitable for frequent modifications
+
+
+===============================================================
+3. STRINGBUFFER
+===============================================================
+
+StringBuffer is also a mutable sequence of characters.
+
+Example:
+
+    StringBuffer sb = new StringBuffer("Java");
+
+    sb.append(" Programming");
+
+    System.out.println(sb);
+
+Output:
+    Java Programming
+
+
+STRINGBUILDER VS STRINGBUFFER
+-----------------------------
+Both are mutable.
+
+StringBuilder:
+- Generally faster for ordinary single-threaded use
+- Not synchronized
+
+StringBuffer:
+- Synchronized
+- Designed for thread-safe operations on the buffer
+
+QUICK COMPARISON
+----------------
+String:
+    Immutable
+
+StringBuilder:
+    Mutable
+    Not synchronized
+
+StringBuffer:
+    Mutable
+    Synchronized
+
+
+===============================================================
+4. WRAPPER CLASS
+===============================================================
+
+Wrapper classes provide object forms of primitive data types.
+
+    byte    → Byte
+    short   → Short
+    int     → Integer
+    long    → Long
+    float   → Float
+    double  → Double
+    char    → Character
+    boolean → Boolean
+
+
+WHY WRAPPER CLASSES?
+--------------------
+Many Java APIs, including collections, work with objects.
+
+Example:
+
+    ArrayList<Integer> numbers = new ArrayList<>();
+
+You cannot use:
+
+    ArrayList<int>
+
+Use:
+
+    ArrayList<Integer>
+
+
+EXAMPLE
+-------
+
+    Integer number = Integer.valueOf(10);
+
+    System.out.println(number);
+
+Output:
+    10
+
+
+USEFUL WRAPPER METHODS
+----------------------
+
+    int n = Integer.parseInt("100");
+
+    System.out.println(n + 20);
+
+Output:
+    120
+
+
+    double value = Double.parseDouble("25.5");
+
+    System.out.println(value);
+
+
+    String s = Integer.toString(100);
+
+    System.out.println(s);
+
+
+===============================================================
+5. AUTOBOXING
+===============================================================
+
+Autoboxing is the automatic conversion of a primitive value into its
+corresponding wrapper object.
+
+Example:
+
+    int n = 10;
+
+    Integer obj = n;
+
+Conceptually:
+
+    int → Integer
+
+
+Another example:
+
+    Integer number = 20;
+
+
+===============================================================
+6. UNBOXING
+===============================================================
+
+Unboxing is the automatic conversion of a wrapper object into its
+corresponding primitive value.
+
+Example:
+
+    Integer obj = 10;
+
+    int n = obj;
+
+Conceptually:
+
+    Integer → int
+
+
+COMBINED EXAMPLE
+----------------
+
+    Integer a = 10;   // autoboxing
+    int b = a;        // unboxing
+
+    System.out.println(a);
+    System.out.println(b);
+
+Output:
+    10
+    10
+
+
+WITH COLLECTIONS
+----------------
+
+    ArrayList<Integer> numbers = new ArrayList<>();
+
+    numbers.add(10);
+
+The int value 10 is autoboxed to Integer.
+
+
+===============================================================
+7. WHAT IS AN ARRAY?
+===============================================================
+
+An array is a fixed-size data structure used to store multiple values of
+the same data type.
+
+Example:
+
+    int[] numbers = {10, 20, 30, 40};
+
+Characteristics:
+- Stores multiple values
+- Same data type
+- Fixed size after creation
+- Index starts at 0
+- Arrays are objects in Java
+
+
+WHY ARRAYS?
+-----------
+Without an array:
+
+    int mark1 = 80;
+    int mark2 = 75;
+    int mark3 = 90;
+
+With an array:
+
+    int[] marks = {80, 75, 90};
+
+
+ARRAY INDEX
+-----------
+
+    int[] numbers = {10, 20, 30};
+
+    numbers[0] → 10
+    numbers[1] → 20
+    numbers[2] → 30
+
+Last valid index:
+    length - 1
+
+
+===============================================================
+8. ARRAY DECLARATION AND INITIALIZATION
+===============================================================
+
+DECLARATION
+-----------
+
+    int[] numbers;
+
+
+CREATION
+--------
+
+    numbers = new int[5];
+
+Creates an array capable of storing 5 int values.
+
+
+DECLARATION + CREATION
+----------------------
+
+    int[] numbers = new int[5];
+
+
+DIRECT INITIALIZATION
+---------------------
+
+    int[] numbers = {10, 20, 30, 40, 50};
+
+
+ACCESSING ELEMENTS
+------------------
+
+    int[] numbers = {10, 20, 30, 40, 50};
+
+    System.out.println(numbers[0]);
+    System.out.println(numbers[3]);
+
+Output:
+    10
+    40
+
+
+CHANGING AN ELEMENT
+-------------------
+
+    numbers[2] = 100;
+
+Original:
+    {10, 20, 30, 40, 50}
+
+After change:
+    {10, 20, 100, 40, 50}
+
+
+ARRAY LENGTH
+------------
+
+    System.out.println(numbers.length);
+
+
+TRAVERSING USING FOR
+--------------------
+
+    int[] numbers = {10, 20, 30, 40};
+
+    for (int i = 0; i < numbers.length; i++) {
+        System.out.println(numbers[i]);
+    }
+
+
+ENHANCED FOR LOOP
+-----------------
+
+    for (int n : numbers) {
+        System.out.println(n);
+    }
+
+
+===============================================================
+9. 2D ARRAY
+===============================================================
+
+A 2D array can be visualized as rows and columns.
+
+Example:
+
+    int[][] matrix = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+Visual form:
+
+    1 2 3
+    4 5 6
+
+
+ACCESSING ELEMENTS
+------------------
+
+    System.out.println(matrix[0][0]);
+
+Output:
+    1
+
+
+    System.out.println(matrix[1][2]);
+
+Output:
+    6
+
+
+TRAVERSING A 2D ARRAY
+---------------------
+
+    for (int i = 0; i < matrix.length; i++) {
+
+        for (int j = 0; j < matrix[i].length; j++) {
+            System.out.print(matrix[i][j] + " ");
+        }
+
+        System.out.println();
+    }
+
+Output:
+    1 2 3
+    4 5 6
+
+
+ROW AND COLUMN LENGTH
+---------------------
+
+    matrix.length
+        → number of rows
+
+    matrix[0].length
+        → number of columns in row 0
+
+
+===============================================================
+10. INITIALIZE ARRAY DYNAMICALLY
+===============================================================
+
+Dynamic initialization means choosing the array size at runtime.
+
+Example using Scanner:
+
+    import java.util.Scanner;
+
+    public class DynamicArray {
+
+        public static void main(String[] args) {
+
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Enter array size: ");
+            int size = sc.nextInt();
+
+            int[] numbers = new int[size];
+
+            for (int i = 0; i < numbers.length; i++) {
+                System.out.print("Enter value " + (i + 1) + ": ");
+                numbers[i] = sc.nextInt();
+            }
+
+            System.out.println("Array values:");
+
+            for (int n : numbers) {
+                System.out.println(n);
+            }
+
+            sc.close();
+        }
+    }
+
+
+Example:
+
+    Enter array size: 3
+    Enter value 1: 10
+    Enter value 2: 20
+    Enter value 3: 30
+
+Output:
+
+    Array values:
+    10
+    20
+    30
+
+
+IMPORTANT
+---------
+The size is selected at runtime, but once an array is created, its size
+cannot be changed.
+
+For a resizable collection, use classes such as ArrayList.
+
+
+===============================================================
+11. ARRAY DEFAULT VALUES
+===============================================================
+
+When an array is created using new, Java gives default values.
+
+    int[] a = new int[3];
+    → 0 0 0
+
+    double[] b = new double[3];
+    → 0.0 0.0 0.0
+
+    boolean[] c = new boolean[3];
+    → false false false
+
+Reference-type arrays initially contain null references.
+
+===============================================================
+13. QUESTIONS
+===============================================================
+
+1. What is String?
+2. Is String a primitive type?
+3. What is the difference between == and equals()?
+4. What does charAt() do?
+5. Why is String immutable?
+6. What is StringBuilder?
+7. What is the difference between StringBuilder and StringBuffer?
+8. What is a wrapper class?
+9. What is Integer for int?
+10. What is autoboxing?
+11. What is unboxing?
+12. What is an array?
+13. What is the first index of an array?
+14. How do you create an array dynamically?
+15. What is a 2D array?
+16. How do you traverse a 2D array?
+
+
+===============================================================
+14. CODING PRACTICE
+===============================================================
+
+STRING
+------
+1. Print the length of a String.
+2. Print each character using charAt().
+3. Reverse a String.
+4. Compare two Strings using equals().
+5. Count vowels.
+6. Check whether a String is a palindrome.
+
+STRINGBUILDER
+-------------
+7. Append first name and last name.
+8. Reverse a String using StringBuilder.
+9. Insert a word.
+10. Delete part of a StringBuilder.
+
+WRAPPER / AUTOBOXING
+--------------------
+11. Convert "100" into int.
+12. Demonstrate autoboxing.
+13. Demonstrate unboxing.
+14. Create an ArrayList<Integer> and add int values.
+
+ARRAY
+-----
+15. Create an array of 5 integers and print all values.
+16. Find sum and average.
+17. Find maximum and minimum.
+18. Count even and odd values.
+19. Search for an element.
+20. Reverse the array.
+
+2D ARRAY
+--------
+21. Create a 2D array and print rows and columns.
+22. Find the sum of all elements.
+23. Print the main diagonal of a square matrix.
+
+DYNAMIC ARRAY
+-------------
+24. Ask the user for array size.
+25. Read values dynamically.
+26. Print the values.
+27. Find the maximum value.
+
+
+
