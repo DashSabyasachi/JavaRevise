@@ -24,8 +24,9 @@ public class WrapperCls {
 		list.add(5);
 		list.add(10);
 		list.add(100);
+		list.add(1000);
 
-		int sum = list.get(0) + list.get(1) + list.get(2);  // both values unboxed automatically, then added
+		int sum = list.get(0) + list.get(1) + list.get(2) + list.get(3)  ;  // both values unboxed automatically, then added
 		System.out.println(sum);             
 	}
 }
