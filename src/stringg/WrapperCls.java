@@ -22,7 +22,7 @@ public class WrapperCls {
 		// Common real-world case: pulling values out of a collection to use in math
 		ArrayList<Integer> list = new ArrayList<>();
 		list.add(1);
-		list.add(10);
+		list.add(10); 
 		list.add(100);
 		list.add(1000);
 		list.add(10000);
