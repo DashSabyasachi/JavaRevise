@@ -2,11 +2,7 @@ package assignment;
 
 import java.util.Scanner;
 
-/**
- * Entry point of the application.
- * Responsible only for taking input from the user and displaying output.
- * All employee data handling is delegated to EmployeeManager.
- */
+
 public class EmpMgmtSys {
 
     public static void main(String[] args) {
@@ -14,17 +10,17 @@ public class EmpMgmtSys {
         Scanner sc = new Scanner(System.in);
         EmpMgr manager = new EmpMgr();
 
-        // Take number of employees
+        
         System.out.print("Enter number of employees: ");
         int n = sc.nextInt();
 
-        // Take employee details
+       
         for (int i = 0; i < n; i++) {
             System.out.println("\nEnter details for Employee " + (i + 1));
 
             System.out.print("Enter Employee ID: ");
             int id = sc.nextInt();
-            sc.nextLine(); // consume leftover newline
+            sc.nextLine(); 
 
             System.out.print("Enter Employee Name: ");
             String name = sc.nextLine();
@@ -35,10 +31,10 @@ public class EmpMgmtSys {
             manager.addEmployee(new Employee(id, name, salary));
         }
 
-        // Display all employees
+       
         manager.displayAllEmployees();
 
-        // Search employee by ID
+       
         System.out.print("\nEnter Employee ID to search: ");
         int searchId = sc.nextInt();
 

@@ -12,7 +12,6 @@ public class Employee {
         this.salary = salary;
     }
 
-    // Getters
     public int getId() {
         return id;
     }
@@ -25,18 +24,16 @@ public class Employee {
         return salary;
     }
 
-    // Setters (in case details ever need updating later)
+
     public void setName(String name) {
         this.name = name;
     }
 
     public void setSalary(double salary) {
         this.salary = salary;
-    }
+    } 
 
-    /**
-     * Displays this employee's details in a formatted block.
-     */
+
     public void displayEmployee() {
         System.out.println("Employee ID     : " + id);
         System.out.println("Employee Name   : " + name);
