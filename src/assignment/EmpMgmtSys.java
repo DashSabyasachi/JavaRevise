@@ -13,7 +13,7 @@ public class EmpMgmtSys {
         
         System.out.print("Enter number of employees: ");
         int n = sc.nextInt();
-
+    
        
         for (int i = 0; i < n; i++) {
             System.out.println("\nEnter details for Employee " + (i + 1));
