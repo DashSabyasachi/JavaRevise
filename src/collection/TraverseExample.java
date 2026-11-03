@@ -18,7 +18,8 @@ public class TraverseExample {
 			System.out.println(str + "\t" +str.length() + "\t" +strBfr.reverse() );
 			
 		}
-		System.out.println("___________________________");
+		System.out.println("_________________");
+		System.out.println("");
 		
 		
 //Traversing using ITERATOR
