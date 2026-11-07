@@ -5,17 +5,17 @@ public class PracticeProg {
 	public static void main(String[] args) {
 		
 //		Hello World	
-//		System.out.println("Hello World");
+		System.out.println("Hello World");
 		
 //		Add two number
-//		int a = 45;
-//		int b = 25;
-//		System.out.println(a+b);
-		
+		int a = 45;
+		int b = 25;
+		System.out.println(a+b);
+//		
 //		Subtract two numbers
-//		int a = 45;
-//		int b = 25;
-//		System.out.println(a-b);
+		int a = 45;
+		int b = 25;
+		System.out.println(a-b);
 		
 //		Multiply two numbers
 //		int a = 45;
