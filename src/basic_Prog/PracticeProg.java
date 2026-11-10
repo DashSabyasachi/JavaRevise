@@ -63,8 +63,8 @@ public class PracticeProg {
 //		}
 //		System.out.println("Largest number: " + largest);
 		
-		PracticeProg p= new PracticeProg();
-		System.out.println(p.add(12, 13));	
+//		PracticeProg p= new PracticeProg();
+//		System.out.println(p.add(12, 13));	
 	}
 	
 	 int add(int a,int b) {
