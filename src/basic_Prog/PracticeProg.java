@@ -18,9 +18,9 @@ public class PracticeProg {
 //		System.out.println(a-b);
 		
 //		Multiply two numbers
-		int a = 45;
-		int b = 5;
-		System.out.println(a*b);
+//		int a = 45;
+//		int b = 5;
+//		System.out.println(a*b);
 		
 //		Even/odd
 //		int a = 40;
