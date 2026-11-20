@@ -5,7 +5,7 @@ public class PracticeProg {
 	public static void main(String[] args) {
 		
 //		Hello World	
-		System.out.println("Hello World");
+//		System.out.println("Hello World");
 		
 //		Add two number
 //		int a = 45;
