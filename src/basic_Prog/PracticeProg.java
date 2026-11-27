@@ -8,10 +8,10 @@ public class PracticeProg {
 //		System.out.println("Hello World");
 		
 //		Add two number
-		int a = 45;
-		int b = 25;
-		System.out.println(a+b);
-//		
+//		int a = 45;
+//		int b = 25;
+//		System.out.println(a+b);
+
 //		Subtract two numbers
 //		int a = 45;
 //		int b = 25;
